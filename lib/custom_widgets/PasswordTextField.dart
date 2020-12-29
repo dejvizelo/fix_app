@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+class PasswordTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
-  final TextInputType keyboardType;
+  final bool obscureText;
+  final Function onIconTap;
 
-  CustomTextField(
+  PasswordTextField(
       {@required this.hintText,
-        @required this.controller,
-        @required this.keyboardType});
+      @required this.controller,
+      @required this.obscureText,
+      @required this.onIconTap});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
       child: TextField(
+        obscureText: obscureText,
         controller: controller,
-        keyboardType: keyboardType,
+        keyboardType: TextInputType.visiblePassword,
         decoration: InputDecoration(
             hintText: hintText,
             contentPadding: EdgeInsets.all(12),
@@ -26,6 +29,13 @@ class CustomTextField extends StatelessWidget {
             ),
             filled: true,
             fillColor: Color(0xFFEBEBEB),
+            suffixIcon: GestureDetector(
+              child: Icon(
+                obscureText ? Icons.visibility_off : Icons.visibility,
+                color: Colors.black,
+              ),
+              onTap: onIconTap,
+            )
         ),
         cursorHeight: 20,
         cursorColor: Colors.red,

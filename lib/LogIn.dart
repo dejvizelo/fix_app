@@ -3,16 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fix_app/custom_widgets/PasswordTextField.dart';
 import 'package:fix_app/custom_widgets/CustomTextField.dart';
-import 'package:fix_app/services/auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
-class SignUp extends StatefulWidget {
+class LogIn extends StatefulWidget {
 
   @override
-  _SignUpState createState() => _SignUpState();
+  _LogInState createState() => _LogInState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LogInState extends State<LogIn> {
 
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
@@ -22,8 +20,8 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return Material(
+      child: SafeArea(
         child: Container(
           padding: EdgeInsets.fromLTRB(20, 0, 20, 30),
           height: MediaQuery.of(context).size.height,
@@ -36,7 +34,7 @@ class _SignUpState extends State<SignUp> {
                 alignment: Alignment.center,
                 margin: EdgeInsets.symmetric(vertical: 30),
                 child: Image.asset(
-                    'assets/logo.png',
+                  'assets/logo.png',
                   width: 200,
                 ),
               ),
@@ -45,7 +43,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Regjistrohu',
+                    'Identifikohu',
                     style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold
@@ -54,7 +52,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
-                      "Vendosni adresen tuaj email per t'u regjistruar ne aplikacion.",
+                      'Vendosni adresen tuaj email per t\'u identifikuar ne aplikacion.',
                       style: TextStyle(
                           fontSize: 20
                       ),
@@ -68,45 +66,19 @@ class _SignUpState extends State<SignUp> {
                   ),
                   Container(height: 10),
                   PasswordTextField(
-                    hintText: 'Password',
-                    obscureText: _passwordVisible,
-                    controller: _passwordController,
-                    onIconTap: () {
-                      setState(() {
-                        _passwordVisible = !_passwordVisible;
-                      });
-                    }
-                  ),
-                  Container(height: 10),
-                  PasswordTextField(
-                      hintText: 'Confirm password',
+                      hintText: 'Password',
                       obscureText: _passwordVisible,
-                      controller: _confirmPasswordController,
+                      controller: _passwordController,
                       onIconTap: () {
                         setState(() {
                           _passwordVisible = !_passwordVisible;
                         });
                       }
                   ),
+                  Container(height: 10),
                   Container(height: 20),
                   YellowButton(
-                    text: 'Sign Up',
-                    onPressed: () async {
-                      try {
-                        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                            email: _emailController.text,
-                            password: _passwordController.text
-                        );
-                      } on FirebaseAuthException catch (e) {
-                        if (e.code == 'weak-password') {
-                          print('The password provided is too weak.');
-                        } else if (e.code == 'email-already-in-use') {
-                          print('The account already exists for that email.');
-                        }
-                      } catch (e) {
-                        print(e);
-                      }
-                    }
+                    text: 'Log In',
                   ),
                   Container(height: 20),
                   Row(
@@ -114,13 +86,13 @@ class _SignUpState extends State<SignUp> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('Already have an account?'),
+                        child: Text("Don't have an account?"),
                       ),
                       FlatButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/login');
+                          Navigator.pop(context);
                         },
-                        child: Text('LOG IN'),
+                        child: Text('SIGN UP'),
                         color: Color(0xFFFFCC00),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                       )

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "180270062018",
+    "project_id": "fixa-e313b",
+    "storage_bucket": "fixa-e313b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180270062018:android:72abf7016b16713419de5b",
+        "android_client_info": {
+          "package_name": "com.newmedia.fix_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180270062018-1vvrsebpu602m9q4jjtv5sg6bmahdlod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh6uSl4_MqFReBn_Rt5wq0O7KD9rfuJUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180270062018-1vvrsebpu602m9q4jjtv5sg6bmahdlod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
