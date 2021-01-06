@@ -1,4 +1,4 @@
-import 'package:fix_app/custom_widgets/YellowButton.dart';
+import 'package:fix_app/custom_widgets/MainButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fix_app/custom_widgets/PasswordTextField.dart';
@@ -89,23 +89,14 @@ class _SignUpState extends State<SignUp> {
                       }
                   ),
                   Container(height: 20),
-                  YellowButton(
+                  MainButton(
                     text: 'Sign Up',
                     onPressed: () async {
-                      try {
-                        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                            email: _emailController.text,
-                            password: _passwordController.text
-                        );
-                      } on FirebaseAuthException catch (e) {
-                        if (e.code == 'weak-password') {
-                          print('The password provided is too weak.');
-                        } else if (e.code == 'email-already-in-use') {
-                          print('The account already exists for that email.');
-                        }
-                      } catch (e) {
-                        print(e);
-                      }
+                      await Auth().signUp(
+                        context: context,
+                        email: _emailController.text,
+                        password: _passwordController.text
+                      );
                     }
                   ),
                   Container(height: 20),

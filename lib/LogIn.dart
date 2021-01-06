@@ -1,8 +1,9 @@
-import 'package:fix_app/custom_widgets/YellowButton.dart';
+import 'package:fix_app/custom_widgets/MainButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fix_app/custom_widgets/PasswordTextField.dart';
 import 'package:fix_app/custom_widgets/CustomTextField.dart';
+import 'package:fix_app/services/auth.dart';
 
 class LogIn extends StatefulWidget {
 
@@ -20,8 +21,8 @@ class _LogInState extends State<LogIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SafeArea(
+    return Scaffold(
+      body: SafeArea(
         child: Container(
           padding: EdgeInsets.fromLTRB(20, 0, 20, 30),
           height: MediaQuery.of(context).size.height,
@@ -77,8 +78,15 @@ class _LogInState extends State<LogIn> {
                   ),
                   Container(height: 10),
                   Container(height: 20),
-                  YellowButton(
+                  MainButton(
                     text: 'Log In',
+                    onPressed: () async {
+                      await Auth().logIn(
+                        context: context,
+                        email: _emailController.text,
+                        password: _passwordController.text
+                      );
+                    },
                   ),
                   Container(height: 20),
                   Row(

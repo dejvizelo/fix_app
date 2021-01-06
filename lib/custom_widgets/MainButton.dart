@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class YellowButton extends StatelessWidget {
+class MainButton extends StatelessWidget {
 
   final String text;
   final Function onPressed;
 
-  YellowButton({this.text, this.onPressed});
+  MainButton({this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {

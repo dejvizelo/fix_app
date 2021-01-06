@@ -1,14 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 
 class Auth {
   static FirebaseAuth auth = FirebaseAuth.instance;
 
-  Future<void> signUp (String email, String password) async {
+  Future<void> signUp ({BuildContext context, String email, String password}) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email,
-          password: password
-      );
+      // await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      //     email: email,
+      //     password: password
+      // );
+      Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -18,5 +20,23 @@ class Auth {
     } catch (e) {
       print(e);
     }
+  }
+
+  Future<void> logIn ({BuildContext context, String email, String password}) async {
+    try {
+
+      Navigator.pushReplacementNamed(context, '/home');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
+
+  Future<void> logOut(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacementNamed(context, '/login');
   }
 }
