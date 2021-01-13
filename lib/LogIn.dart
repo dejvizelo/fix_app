@@ -98,7 +98,7 @@ class _LogInState extends State<LogIn> {
                       ),
                       FlatButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.pushReplacementNamed(context, '/');
                         },
                         child: Text('SIGN UP'),
                         color: Color(0xFFFFCC00),

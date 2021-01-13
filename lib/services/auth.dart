@@ -10,7 +10,7 @@ class Auth {
       //     email: email,
       //     password: password
       // );
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -24,8 +24,11 @@ class Auth {
 
   Future<void> logIn ({BuildContext context, String email, String password}) async {
     try {
-
-      Navigator.pushReplacementNamed(context, '/home');
+      // UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //     email: email,
+      //     password: password
+      // );
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -37,6 +40,6 @@ class Auth {
 
   Future<void> logOut(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
-    Navigator.pushReplacementNamed(context, '/login');
+    Navigator.pushNamedAndRemoveUntil(context, '/login', (Route<dynamic> route) => false);
   }
 }
