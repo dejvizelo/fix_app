@@ -6,10 +6,10 @@ class Auth {
 
   Future<void> signUp ({BuildContext context, String email, String password}) async {
     try {
-      // await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      //     email: email,
-      //     password: password
-      // );
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email,
+          password: password
+      );
       Navigator.pushNamedAndRemoveUntil(context, '/home', (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -24,10 +24,10 @@ class Auth {
 
   Future<void> logIn ({BuildContext context, String email, String password}) async {
     try {
-      // UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-      //     email: email,
-      //     password: password
-      // );
+      UserCredential userCredentials = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password
+      );
       Navigator.pushNamedAndRemoveUntil(context, '/home', (Route<dynamic> route) => false);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
