@@ -1,34 +1,59 @@
 {
   "project_info": {
-    "project_number": "180270062018",
-    "project_id": "fixa-e313b",
-    "storage_bucket": "fixa-e313b.appspot.com"
+    "project_number": "460606205326",
+    "firebase_url": "https://fix-company-b2b.firebaseio.com",
+    "project_id": "fix-company-b2b",
+    "storage_bucket": "fix-company-b2b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:180270062018:android:72abf7016b16713419de5b",
+        "mobilesdk_app_id": "1:460606205326:android:d0e806d9638145afe808df",
         "android_client_info": {
-          "package_name": "com.newmedia.fix_app"
+          "package_name": "al.newmedia.fix_company_b2b"
         }
       },
       "oauth_client": [
         {
-          "client_id": "180270062018-1vvrsebpu602m9q4jjtv5sg6bmahdlod.apps.googleusercontent.com",
+          "client_id": "460606205326-11d6834srfqirpdqhebvcntcr129vhoq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "al.newmedia.fix_company_b2b",
+            "certificate_hash": "a12f36d58c2102dec3fc5127ad1b5a9b78040ace"
+          }
+        },
+        {
+          "client_id": "460606205326-b91avm4a1r03qqigekkk8l232fnm9c9g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "al.newmedia.fix_company_b2b",
+            "certificate_hash": "bbb08f4e4320b3a12560661c05de0e05638ec049"
+          }
+        },
+        {
+          "client_id": "460606205326-8o07c8096d9drk67lujjv1a3qjkihfjc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBh6uSl4_MqFReBn_Rt5wq0O7KD9rfuJUE"
+          "current_key": "AIzaSyBkmyAB2jxcbdeEJmCkiAFwIgykCi3EA8s"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "180270062018-1vvrsebpu602m9q4jjtv5sg6bmahdlod.apps.googleusercontent.com",
+              "client_id": "460606205326-8o07c8096d9drk67lujjv1a3qjkihfjc.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "460606205326-nevp3pg92qtm97efhek81qm4gtld7fg0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "al.newmedia.fixCompanyB2b",
+                "app_store_id": "962194608"
+              }
             }
           ]
         }
