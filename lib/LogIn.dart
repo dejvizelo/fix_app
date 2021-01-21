@@ -76,7 +76,22 @@ class _LogInState extends State<LogIn> {
                         });
                       }
                   ),
-                  Container(height: 10),
+                  Container(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Ke harruar fjalekalimin? "),
+                      GestureDetector(
+                        child: Text(
+                          "Ndryshoje ketu",
+                          style: TextStyle(decoration: TextDecoration.underline),
+                        ),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/resetPassword');
+                        },
+                      )
+                    ],
+                  ),
                   Container(height: 20),
                   MainButton(
                     text: 'Log In',

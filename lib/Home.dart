@@ -1,9 +1,11 @@
-import 'package:fix_app/LogIn.dart';
-import 'package:fix_app/Shop.dart';
+import 'package:fix_app/Account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'dart:io' show Platform;
+import 'package:fix_app/LogIn.dart';
+import 'package:fix_app/Shop.dart';
+import 'package:fix_app/Category.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -29,7 +31,7 @@ class AndroidFixTabBar extends StatefulWidget {
 class _AndroidFixTabBarState extends State<AndroidFixTabBar> {
 
   int index = 0;
-  List<Widget> _screens = [Shop(), LogIn(), LogIn(), LogIn()];
+  List<Widget> _screens = [Shop(), LogIn(), Account(), LogIn()];
 
   tapped(int tappedIndex) {
     setState(
@@ -168,7 +170,7 @@ class _IOSFixTabBarState extends State<IOSFixTabBar> {
               return LogIn();
               break;
             case 2:
-              return LogIn();
+              return Account();
               break;
             case 3:
               return LogIn();
